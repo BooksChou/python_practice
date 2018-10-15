@@ -1,0 +1,18 @@
+def flatten(input_list):
+    output_list = []
+    while True:
+        if input_list == []:
+            break
+        for index, value in enumerate(input_list):
+            # index :索引序列  value:索引序列对应的值
+            # enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，
+            # 同时列出数据和数据下标，一般用在 for 循环当中。
+            if type(value)== list:
+                input_list = value + input_list[index+1:]
+                break   # 这里跳出for循环后，从While循环进入的时候index是更新后的input_list新开始算的。
+            else:
+                output_list.append(value)
+                input_list.pop(index)
+                break
+    return output_list
+print(flatten(t)) 
