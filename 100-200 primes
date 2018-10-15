@@ -1,0 +1,21 @@
+def prime(m, n):
+    list1 = []
+    list2 = []
+    for i in range(m, n + 1):
+        list1.append(i)
+        for j in range(2, m // 2):
+            if i % j == 0:
+                list2.append(i)
+                break
+    # print list(set(list1).difference(set(list2)))
+    # list1中有而list2中没有的
+    list = [i for i in list1 if i not in list2]
+    list.sort()
+    print(list)
+    print("该区间共有素数%d个" % len(list))
+
+
+if __name__ == "__main__":
+    m = int(input("请输入区间左端点："))
+    n = int(input("请输入区间右端点："))
+    prime(m, n)
