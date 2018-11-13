@@ -1,0 +1,45 @@
+# 归并排序
+def merge_sort(lists):
+    if len(lists) <= 1:
+        return lists
+    mid = len(lists)//2
+    # 递归
+    list_1 = merge_sort(lists[:mid])
+    list_2 = merge_sort(lists[mid:])
+    print("list_1:")
+    print(list_1)
+    print("list_2:")
+    print(list_2)
+    return merge_sorted(list_1, list_2)
+
+
+# 合并两个有序数集
+def merge_sorted(list_1, list_2):
+    new_list = list()
+    a = 0
+    b = 0
+    # Merge the two lists together until one is empty
+    while a < len(list_1) and b < len(list_2):
+        if list_1[a] < list_2[b]:
+            new_list.append(list_1[a])
+            a += 1
+        else:
+            new_list.append(list_2[b])
+            b += 1
+    # 将list_1中小于len的元素添加进new_list
+    while a < len(list_1):
+        new_list.append(list_1[a])
+        a += 1
+    
+    # 将list_2中小于len的元素添加进new_list
+    while b < len(list_2):
+        new_list.append(list_2[b])
+        b += 1
+    return new_list
+
+
+if __name__ == "__main__":
+    lists = [3, 5, 4, 2, 1, 6]
+    print("归并排序：")
+    print(lists)
+    print(merge_sort(lists))
