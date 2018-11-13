@@ -1,0 +1,35 @@
+# 快速排序
+def quick_sort(list, low, high):
+    if low < high:
+        key_index = sort(list, low, high)
+        quick_sort(list, low, key_index)
+        quick_sort(list, key_index+1, high)
+
+
+def sort(list, low, high):
+    key = list[low]
+    while low < high:
+        while low < high and list[high] >= key:
+            high -= 1
+        if low < high:
+            list[low] = list[high]
+
+        while low < high and list[low] < key:
+            low += 1
+        if low < high:
+            list[high] = list[low]
+
+        list[low] = key
+        print("low = :")
+        print(low)
+        print("high = :")
+        print(high)
+        print(list)
+    return low
+
+
+if __name__ == '__main__':
+    list_1 = [9, 3, 2, 1, 4, 6, 7, 0, 5]
+
+    print(list_1)
+    quick_sort(list_1, 0, len(list_1)-1)
