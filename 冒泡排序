@@ -1,0 +1,16 @@
+# 冒泡排序
+def bubble_sort(list):
+    count = len(list)
+    for i in range(0, count):
+        for j in range(i+1, count):
+            if list[i] > list[j]:
+                list[i], list[j] = list[j], list[i]
+        print(list)
+    return list
+
+
+if __name__ == "__main__":
+    list = [5, 3, 6, 7, 4, 9, 1, 2, 8]
+
+    print('冒泡排序:')
+    print(bubble_sort(list))
