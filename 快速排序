@@ -30,6 +30,6 @@ def sort(list, low, high):
 
 if __name__ == '__main__':
     list_1 = [9, 3, 2, 1, 4, 6, 7, 0, 5]
-
+    print("快速排序:")
     print(list_1)
     quick_sort(list_1, 0, len(list_1)-1)
