@@ -1,0 +1,33 @@
+"""
+输入描述:
+输入包括两行,第一行包含整数n(2 ≤ n ≤ 50),即数列的长度。
+第二行n个元素x[i](0 ≤ x[i] ≤ 1000),即数列中的每个整数。
+
+
+输出描述:
+如果可以变成等差数列输出"Possible",否则输出"Impossible"
+                                                              
+                                                              
+                                                              """
+
+
+
+
+
+
+l = int(input())
+m = input()
+n = [int(i) for i in m.split()]
+n.sort()
+
+
+def sort(a, b):
+    for i in range(a - 1):
+
+        if b[i+2] - b[i+1] == b[i+1] - b[i]:
+            return 'Possible'
+
+    return 'Impossible'
+
+
+print(sort(l, n))
